@@ -1,0 +1,27 @@
+
+
+  eureka:
+    client:
+      register-with-eureka: false
+  server:
+    port: 8222
+  spring:
+    cloud:
+      gateway:
+        discovery:
+          locator:
+            enabled: true
+        routes:
+          - id: branch
+            uri: http://localhost:8075
+            predicates:
+              - Path=/obp/v2.1.0/banks/**
+          - id: test3
+            uri: http://localhost:8076
+            predicates:
+              - Path=/api/v1/test3/**
+
+  management:
+    tracing:
+      sampling:
+        probability: 1.0
