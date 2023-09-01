@@ -16,10 +16,10 @@
             uri: http://localhost:8075
             predicates:
               - Path=/obp/v2.1.0/banks/**
-          - id: test3
-            uri: http://localhost:8076
+          - id: exchange_rate
+            uri: http://localhost:8078
             predicates:
-              - Path=/api/v1/test3/**
+              - Path=/ExchangeRate/**
 
   management:
     tracing:

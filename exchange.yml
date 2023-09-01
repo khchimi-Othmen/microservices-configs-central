@@ -1,0 +1,39 @@
+server:
+  port: 8078
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/exchange_rate04?createDatabaseIfNotExist=true
+    username: root
+    password: root_password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQLDialect
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %-2level - %logger{60} - %d - %msg %n"
+  file:
+    name: c:/logging/spring_file.log
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+management:
+  endpoints:
+    web:
+      include: '*'
+  tracing:
+    sampling:
+     probability: 1.0
+
