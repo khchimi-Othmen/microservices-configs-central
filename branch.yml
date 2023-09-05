@@ -1,0 +1,45 @@
+### APPLICATION PROPERTIES ###
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 8075
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/branch?createDatabaseIfNotExist=true
+    username: root
+    password: root_password
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+        properties:
+          hibernate.dialect: org.hibernate.dialect.MySQLDialect
+  zipkin:
+    enabled: true
+    baseUrl: http://localhost:9411
+
+  sleuth:
+    sampler:
+      probability: 1.0
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %-2level - %logger{60} - %d - %msg %n"
+    file: c:/logging/spring_file.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
